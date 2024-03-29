@@ -37,6 +37,7 @@ open class Panda : Herbivore() {
  * G, G
  *
  */
+@Suppress("RedundantExplicitType")
 fun main() {
     val f1: Food = Food()
     val f2: Food = Grass()

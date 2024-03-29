@@ -17,6 +17,7 @@ fun main() {
     b.say(1) // Int: 1
     println()
 
+    // Most specific candidate
     // https://kotlinlang.org/spec/overload-resolution.html#algorithm-of-msc-selection
     var int: Int = 1
     val num: Number = int

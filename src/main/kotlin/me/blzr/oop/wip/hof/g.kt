@@ -1,4 +1,4 @@
-package me.blzr.oop.g.hof
+package me.blzr.oop.wip.hof
 
 import java.util.*
 import java.util.concurrent.CompletableFuture
@@ -226,7 +226,8 @@ fun main() {
     println(Fibonacci().asSequence().take(10).filter { it % 2L == 1L }.map { it })
     println("Sequence List!")
     // find - terminal, завершающая функция, приводит к вычислению последовательности
-    println(Fibonacci().asSequence()
+    println(
+        Fibonacci().asSequence()
         .take(100)
         .filter {
             println("# $it")
@@ -239,7 +240,8 @@ fun main() {
     )
 
     println("Koltin collections")
-    println(FibIterable()
+    println(
+        FibIterable()
         .take(20)
         .filter {
             println("!! $it")

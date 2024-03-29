@@ -1,4 +1,4 @@
-package me.blzr.oop.h.concurrency
+package me.blzr.oop.wip.concurrency
 
 import java.util.concurrent.*
 import kotlin.random.Random
