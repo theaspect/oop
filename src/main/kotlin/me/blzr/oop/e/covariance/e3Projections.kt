@@ -1,5 +1,6 @@
 package me.blzr.oop.e.covariance
 
+@Suppress("RemoveExplicitTypeArguments", "UNUSED_VARIABLE")
 fun main() {
     val a: List<Food> = listOf<Grass>(Grass())
     val b: List<Grass> = listOf()
@@ -9,11 +10,14 @@ fun main() {
     // val c: MutableList<Food> = mutableListOf<Grass>(Grass())
     // c.add(Food())
 
-    val g = ArrayList<Grass>()
+    val g: MutableList<Grass> = mutableListOf<Grass>()
     g.add(Grass())
     val f: List<Food> = g
 
-    (f as ArrayList<Food>).add(Food()) // Java type erasure
+    // Type mismatch: inferred type is MutableList<Grass> but MutableList<Food> was expected
+    // val h: MutableList<Food> = g
+
+    // (f as MutableList<Food>).add(Food()) // Java type erasure
 
     // class Food cannot be cast to Grass
     for (i: Grass in g) {
@@ -21,5 +25,6 @@ fun main() {
     }
 
     // Предупреждает о потенциальной проблеме
-    val x: ArrayList<Food> = g as ArrayList<Food>
+    // Unchecked cast: MutableList<Grass> to MutableList<Food>
+    val x: MutableList<Food> = g as MutableList<Food>
 }

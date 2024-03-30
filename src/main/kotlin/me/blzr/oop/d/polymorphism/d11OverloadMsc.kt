@@ -1,6 +1,7 @@
 package me.blzr.oop.d.polymorphism
 
 // Полиморфизм перегрузки 2
+// Any > Number > Int
 class B {
     fun say(what: Any): Unit = println("Any: $what")
     fun say(what: Number): Unit = println("Number: $what")
@@ -23,12 +24,12 @@ fun main() {
     val num: Number = int
     val any: Any = num
 
-    // b.say(int) // ?
-    // b.say(num) // ?
-    // b.say(any) // ?
+     b.say(int) // ?
+     b.say(num) // ?
+     b.say(any) // ?
 
     println()
-    // b.say(any as Int) // Int: 1
+    b.say(any as Int) // ?
 
     println()
     int *= 2

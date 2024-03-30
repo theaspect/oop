@@ -1,6 +1,7 @@
 package me.blzr.oop.d.polymorphism
 
 class GenericList<T>(private val size: Int) {
+    // Type erasure
     private val data = Array<Any?>(size) { null }
 
     operator fun get(i: Int): T {
@@ -31,6 +32,7 @@ fun main() {
     intList[0] = 0
     intList[1] = 1
     intList[2] = 2
+    // intList[3] = "3"
     println(intList.toString())
 
     val intListCopy: GenericList<Int> = intList.copy()

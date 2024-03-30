@@ -3,7 +3,6 @@ package me.blzr.oop.e.covariance
 // Contravariance
 // products
 open class Food
-
 open class Grass : Food()
 open class Bamboo : Grass()
 
@@ -15,7 +14,8 @@ open class Animal {
 }
 
 open class Herbivore : Animal() {
-    // override fun consume(a: Grass){} // ! error
+    // 'consume' overrides nothing
+    // override fun consume(a: Grass){}
 
     // LSP violation
     override fun consume(a: Food) {
@@ -23,34 +23,30 @@ open class Herbivore : Animal() {
         println("Food Herbivore")
     }
 
-    fun consume(a: Grass) {
-        println("Grass")
-    }
+    // fun consume(a: Grass) {
+    //    println("Grass Herbivore")
+    // }
 }
 
 open class Panda : Herbivore() {
-    // override fun consume(a: Bamboo){} // ! error
+    // 'consume' overrides nothing
+    // override fun consume(a: Bamboo){}
 }
 
-/**
- * FH, FH
- * G, G
- *
- */
 @Suppress("RedundantExplicitType")
 fun main() {
-    val f1: Food = Food()
-    val f2: Food = Grass()
-    val f3: Grass = Grass()
+    val ff: Food = Food()
+    val fg: Food = Grass()
+    val gg: Grass = Grass()
 
     val a1: Animal = Herbivore()
-    a1.consume(f1)
-    a1.consume(f2)
-    a1.consume(f3)
+    a1.consume(ff) // Bad
+    a1.consume(fg) // Bad
+    a1.consume(gg) // Bad
 
-    println("===")
+    println()
     val a2: Herbivore = Herbivore()
-    a2.consume(f1)
-    a2.consume(f2)
-    a2.consume(f3)
+    a2.consume(ff) // Bad
+    a2.consume(fg) // Bad
+    a2.consume(gg)
 }

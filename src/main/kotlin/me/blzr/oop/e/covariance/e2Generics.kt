@@ -36,14 +36,17 @@ open class Panda1<T : Bamboo> : Herbivore1<T>() {
 fun main() {
     val a1: Animal1<Food> = Animal1<Food>()
     val a2: Animal1<Grass> = Herbivore1<Grass>()
+    // val a3: Animal1<Food> = Herbivore1<Grass>()
 
     a1.consume(Food())
     a1.consume(Grass())
-    // a2.consume(Food()) // !
+    // Type mismatch: inferred type is Food but Grass was expected
+    // a2.consume(Food())
     a2.consume(Grass())
 
     println(a1.getT(Food()))
     println(a1.getT(Grass()))
-    // a2.consume(Food()) // !
+    // Type mismatch: inferred type is Food but Grass was expected
+    // a2.consume(Food())
     println(a2.getT(Grass()))
 }
